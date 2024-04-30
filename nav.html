@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!--bootstrap cdn css link  -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abel&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <title>MusicO</title>
+
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li class="brand"><img src="navpics/logonew3.png" alt="MusicO">MusicO</li>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="nav.html">About</a>
+    <a id="p" href="top10.html">Top Punjabi Songs</a>
+    <a id="b" href="car_playlist.html">Gym Playlist</a>
+    <a  id="t" href="anuv_jain.html">Anuv Jain Mix</a>
+    <a  id="a" href="bollywood.html">Bollywood Hits</a>
+    <a id="ts" href="taylor_swift.html">Taylor Swift</a>
+    <a id="c" href="carplaylist.html">Car Playlist</a>
+    <a  id="l" href="createplaylist.html">Create Playlist</a>
+  </div>
+  <span id="ett" onclick="openNav()"><i class="fa-solid fa-bars"></i></span>  
+  
+  <div id="main">
+  </div>
+  <div class="search-container">
+    <form action="">
+      <i id="languageButton" class="fa-solid fa-language fa-xl" style="color: white; margin-left: 990px;"></i>
+      <input  type="text" placeholder="What do you want to listen to ?" name="search" id="searchInput">
+      <a id="logout" style="color: white;"><i class="fa-solid fa-xl fa-arrow-right-from-bracket"></i> </a>
+    
+    </form>
+    
+  </div>
+    </ul>
+</nav> 
+
+
+<h2 id="yp">Recently Played</h2>
+<div class="sc">
+    <div class="st">
+       <a href="carplaylist.html"><img src="navpics/cp.png" alt="Song 1 Cover"></a>
+      <div class="song-details">
+        <h2 class="stt" id="ac">Car Playlists</h2>
+        
+
+      </div>
+    </div>
+    
+    <div class="st">
+       <a href="anuv_jain.html"><img src="navpics/ajm.png" alt="Song 1 Cover"></a>
+      <div class="song-details">
+        <h2 class="stt" id="bb">Anuv Jain Mix</h2>
+      </div>
+    </div>
+    
+    <div class="st">
+       <a href="taylor_swift.html"><img src="navpics/ts.png" alt="Song 1 Cover"></a>
+      <div class="song-details">
+        <h2 class="stt" id="cc">Taylor Swift</h2>
+
+      </div>
+    </div>
+    
+    <div class="st">
+       <a href="car_playlist.html"><img src="navpics/tsm.png" alt="Song 1 Cover"></a>
+      <div class="song-details">
+        <h2 class="stt" id="d">Gym Playlist</h2>
+
+      </div>
+    </div>
+    
+    <div class="st">
+       <a href="bollywood.html"><img src="navpics/bth.png" alt="Song 1 Cover"></a>
+      <div class="song-details">
+        <h2 class="stt" id="e">Bollywood Hits-10</h2>
+
+      </div>
+    </div>
+    
+    <div class="st">
+       <a href="top10.html"><img src="navpics/topp.png" alt="Song 1 Cover"></a>
+      <div class="song-details">
+        <h2 class="stt" id="f">TOP 10 Punjabi Songs</h2>
+
+      </div>
+    </div>
+    
+  </div>
+  <h2 id="toptt">Featured Playlists</h2>
+<div id="mainn">
+<div id="featured-playlists">
+  <div class="playlist" id="punjabi">
+    <a href="top10.html"><img src="navpics/topp.png"></a>
+    <div class="playlist-info">
+      <div class="playlist-title" id="punjabititle">TOP 10 Punjabi Songs </div>
+      <div class="playlist-description" id="punjabides">Trending punjabi songs</div>
+    </div>
+  </div>
+  <div class="playlist" id="bollywood">
+    <a href="bollywood.html"><img src="navpics/bth.png" alt="Playlist Image"></a>
+    <div class="playlist-info">
+      <div class="playlist-title" id="bolltitle">Bollywood Hits-10</div>
+      <div class="playlist-description" id="bolldes">Bollywood Best</div>
+    </div>
+  </div>
+  <div class="playlist" id="gym">
+    <a href="car_playlist.html"><img src="navpics/tsm.png" alt="Playlist Image"></a>
+    <div class="playlist-info">
+      <div class="playlist-title" id="gymt">Gym Playlist</div>
+      <div class="playlist-description" id="gymdes">Workout & Burn.</div>
+    </div>
+  </div>
+  <div class="playlist" id="Anuv jain">
+    <a href="anuv_jain.html"><img src="navpics/ajm.png" alt="Playlist Image"></a>
+    <div class="playlist-info">
+      <div class="playlist-title" id="ajt">Anuv Jain Mix</div>
+      <div class="playlist-description" id="ajdes">Best of Anuv Jain</div>
+    </div>
+  </div>
+  <div class="playlist" id="Taylor swift ">
+    <a href="taylor_swift.html"><img src="navpics/ts.png" alt="Playlist Image"></a>
+    <div class="playlist-info">
+      <div class="playlist-title" id="tst">Taylor Swift</div>
+      <div class="playlist-description" id="tsdes">1988-Taylor Swift</div>
+    </div>
+  </div>
+  <div class="playlist" id="Car plylist">
+    <a href="carplaylist.html"><img src="navpics/cp.png" alt="Playlist Image"></a>
+    <div class="playlist-info">
+      <div class="playlist-title" id="cart">Car Playlist</div>
+      <div class="playlist-description" id="cardes">Vibe In Car Songs.</div>
+    </div>
+  </div>
+  <div class="playlist" id="">
+    <a href="HappyVibes.html"><img src="navpics/cp.png" alt="Playlist Image"></a>
+    <div class="playlist-info">
+      <div class="playlist-title" id="">Happy Vibes Playlist</div>
+      <div class="playlist-description" id="">Happy Songs.</div>
+    </div>
+  </div>
+
+</div>
+</div>
+</html>
