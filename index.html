@@ -232,6 +232,52 @@
         </div>
     </div>
     <script src="https://kit.fontawesome.com/67ae9b72c4.js" crossorigin="anonymous"></script>
+    <script>
+         const languages = {
+      en: {
+        mtt:"Login",
+        bl:"Log In",
+        spant:"or use your account",
+        ht:"Welcome to MusicO",
+        hdes:"Music can change the world because it can change people.",
+        reg:"New User? Register"
+      },
+      hi: {
+        mtt:"लॉग इन",
+        bl:"लॉग इन",
+        spant:"या अपने खाते का उपयोग करें",
+        ht:"म्यूजिकओ में आपका स्वागत है",
+        hdes:"संगीत दुनिया को बदल सकता है क्योंकि यह लोगों को बदल सकता है।",
+        reg:"नए उपयोगकर्ता? पंजीकरण करवाना"
+      }
+    };
+    
+    
+    let currentLanguage = "en";
+    
+   
+    function updateContent() {
+      document.getElementById("mtt").textContent = languages[currentLanguage].mtt;
+      document.getElementById("spant").textContent = languages[currentLanguage].spant;
+      document.getElementById("bl").textContent = languages[currentLanguage].bl;
+      document.getElementById("ht").textContent = languages[currentLanguage].ht;
+      document.getElementById("hdes").textContent = languages[currentLanguage].hdes;
+      document.getElementById("reg").textContent = languages[currentLanguage].reg;
+      
+    }
+    
+   
+    function toggleLanguage() {
+      currentLanguage = (currentLanguage === "en") ? "hi" : "en";
+      updateContent();
+    }
+    
+   
+    updateContent();
+    
+   
+    document.getElementById("languageButton").addEventListener("click", toggleLanguage);
+    </script>
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
