@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+    @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      
+      background: rgb(104,102,106);
+    background: radial-gradient(circle, rgba(119,151,255,1) 0%, rgba(0,0,0,1) 100%);
+      background-repeat: no-repeat;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: 'Montserrat', sans-serif;
+      height: 100vh;
+      margin: -20px 0 50px;
+    }
+    
+    h1 {
+      font-weight: bold;
+      margin: 0;
+    }
+    .error {
+      color: red;
+      }
+    
+    p {
+      font-size: 14px;
+      font-weight: 100;
+      line-height: 20px;
+      letter-spacing: 0.5px;
+      margin: 20px 0 30px;
+    }
+    
+    span {
+      font-size: 12px;
+    }
+    
+    a {
+      color: #ffffff;
+      font-size: 14px;
+      text-decoration: none;
+      margin: 15px 0;
+    }
+    
+    button {
+      border-radius: 20px;
+      border: 1px solid rgba(119,151,255,1);
+      background-color: rgba(119,151,255,1);
+      color: #eeebeb;
+      font-size: 10px;
+      font-weight: bold;
+      width: 300px;
+      margin-top: 10px;
+      padding: 12px 45px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: transform 80ms ease-in;
+    }
+    
+    form {
+      background-color: rgba(255, 255, 255, 0.879);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0 50px;
+      height: 100%;
+      border-radius: 10px;
+      border-color: white;
+      text-align: center;
+      border-radius: 30px;
+      color: black;
+    }
+    
+    input {
+      background-color: rgb(247, 241, 241);
+      color: black;
+      border-radius: 15px;
+      padding: 12px 15px;
+      margin: 4px 0;
+      width: 100%;
+      
+    }
+    
+    .container {
+      background-color: #ffffffd3;
+      border-radius: 30px;
+      border-color: white;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      position: relative;
+      overflow: hidden;
+        height: 100px;
+      width: 768px;
+      max-width: 100%;
+      min-height: 480px;
+    }
+    
+    .form-container {
+      position: absolute;
+      top: 0;
+      height: 100%;
+    }
+    
+    .log-in-container {
+      left: 0;
+      width: 50%;
+      z-index: 2;
+    }
+    
+    .log-out-container {
+      right: 0;
+      width: 50%;
+      z-index: 2;
+    }
+    
+    
+    .overlay-container {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 50%;
+      height: 100%;
+      transition: left 0.5s ease;
+    }
+    
+    
+    .overlay {
+      background:rgba(119,151,255,1);
+      /* background-color:rgb(75, 52, 98); */
+      border-radius: 30px;
+      /* background: -webkit-linear-gradient(to right, rgba(125,35,218,1), rgba(125,35,218,1));
+      background: linear-gradient(to right,rgba(125,35,218,1), rgba(125,35,218,1)); */
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 0 0;
+      color: #101010;
+      position: relative;
+      left: -100%;
+      height: 100%;
+      width: 200%;
+    }
+    
+    .overlay-panel {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0 40px;
+      text-align: center;
+      top: 0;
+      height: 100%;
+      width: 50%;
+    }
+    
+    
+    .overlay-right {
+      right: 0;
+    }
+    
+    .overlay-left {
+      left:  0;
+    }
+    
+    
+    .social-container {
+      margin: 50px 0;
+    }
+    
+    .social-container a {
+      border: 1px solid #070707;
+      color: black;
+      border-radius: 50%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 5px;
+      height: 40px;
+      width: 40px;
+    }
+    
+    ::placeholder {
+      color: black;
+      opacity: 1; /* Firefox */
+      }
+    #ht,#hdes {
+
+      color: white;
+    }
+    #reg{
+      cursor: pointer;
+    }
+    </style>
+    <title>MusicO</title>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container log-in-container" id="rightover">
+            <form action="">
+                <i id="languageButton" class="fa-solid fa-language fa-xl" style="padding-bottom: 90px; padding-right: 330px; cursor: pointer;"></i>
+                <h1 id="mtt">Login</h1>
+                <div class="social-container">
+                    <a href="" class="social"><i class="fa fa-apple fa-2x"></i></a>
+                    <a href="" class="social"><i class="fab fa fa-google fa-2x"></i></a>
+                
+                </div>
+                <span id="spant">or use your account</span>
+                <input type="email" id="email" placeholder="Email" required />
+                <input type="password" id="password" placeholder="Password" required />
+                <span id="loginError" class="error"></span>
+                <button type="button" id="bl" name="login"></button>
+            </form>
+        </div>
+        <div class="overlay-container" id="overlayContainer">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <h1 id="ht">Welcome to MusicO</h1>
+                    <p id="hdes">"Music can change the world because it can change people."</p>
+                    <a id="reg">New User? Register</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/67ae9b72c4.js" crossorigin="anonymous"></script>
+    <script>
+         const languages = {
+      en: {
+        mtt:"Login",
+        bl:"Log In",
+        spant:"or use your account",
+        ht:"Welcome to MusicO",
+        hdes:"Music can change the world because it can change people.",
+        reg:"New User? Register"
+      },
+      hi: {
+        mtt:"लॉग इन",
+        bl:"लॉग इन",
+        spant:"या अपने खाते का उपयोग करें",
+        ht:"म्यूजिकओ में आपका स्वागत है",
+        hdes:"संगीत दुनिया को बदल सकता है क्योंकि यह लोगों को बदल सकता है।",
+        reg:"नए उपयोगकर्ता? पंजीकरण करवाना"
+      }
+    };
+    
+    
+    let currentLanguage = "en";
+    
+   
+    function updateContent() {
+      document.getElementById("mtt").textContent = languages[currentLanguage].mtt;
+      document.getElementById("spant").textContent = languages[currentLanguage].spant;
+      document.getElementById("bl").textContent = languages[currentLanguage].bl;
+      document.getElementById("ht").textContent = languages[currentLanguage].ht;
+      document.getElementById("hdes").textContent = languages[currentLanguage].hdes;
+      document.getElementById("reg").textContent = languages[currentLanguage].reg;
+      
+    }
+    
+   
+    function toggleLanguage() {
+      currentLanguage = (currentLanguage === "en") ? "hi" : "en";
+      updateContent();
+    }
+    
+   
+    updateContent();
+    
+   
+    document.getElementById("languageButton").addEventListener("click", toggleLanguage);
+    </script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+    
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+      apiKey: "AIzaSyBDs2cBIcv8dwIpGd23-GkqSbfghcSDTWE",
+      authDomain: "musico-auth.firebaseapp.com",
+      databaseURL: "https://musico-auth-default-rtdb.firebaseio.com",
+      projectId: "musico-auth",
+      storageBucket: "musico-auth.appspot.com",
+      messagingSenderId: "881812235522",
+      appId: "1:881812235522:web:0489aa0507fbd6d595ce1b"
+    };
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth();
+        console.log(app);
+        document.getElementById("bl").addEventListener("click", function() {
+        var email =  document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          console.log(user);
+          window.location = 'nav.html';
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          console.log(errorMessage);
+          alert(errorMessage);
+        });          
+    });
+
+    document.getElementById("reg").addEventListener('click' ,function(){
+      document.getElementById("overlayContainer").style.left = "0";
+          setTimeout(() => {
+            window.location.href = 'register.html';
+          }, 450); 
+    });
+    </script>
+    <script type="text/javascript"> 
+  window.history.forward(); 
+  function noBack() { 
+      window.history.forward(); 
+  } 
+</script> 
+</body>
+</html>
