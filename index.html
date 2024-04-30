@@ -278,56 +278,6 @@
    
     document.getElementById("languageButton").addEventListener("click", toggleLanguage);
     </script>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-    
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-      apiKey: "AIzaSyBDs2cBIcv8dwIpGd23-GkqSbfghcSDTWE",
-      authDomain: "musico-auth.firebaseapp.com",
-      databaseURL: "https://musico-auth-default-rtdb.firebaseio.com",
-      projectId: "musico-auth",
-      storageBucket: "musico-auth.appspot.com",
-      messagingSenderId: "881812235522",
-      appId: "1:881812235522:web:0489aa0507fbd6d595ce1b"
-    };
-    
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const auth = getAuth();
-        console.log(app);
-        document.getElementById("bl").addEventListener("click", function() {
-        var email =  document.getElementById("email").value;
-        var password = document.getElementById("password").value;
-
-        signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Signed in 
-          const user = userCredential.user;
-          console.log(user);
-          window.location = 'nav.html';
-        })
-        .catch((error) => {
-          const errorMessage = error.message;
-          console.log(errorMessage);
-          alert(errorMessage);
-        });          
-    });
-
-    document.getElementById("reg").addEventListener('click' ,function(){
-      document.getElementById("overlayContainer").style.left = "0";
-          setTimeout(() => {
-            window.location.href = 'register.html';
-          }, 450); 
-    });
-    </script>
     <script type="text/javascript"> 
   window.history.forward(); 
   function noBack() { 
