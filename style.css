@@ -6,7 +6,7 @@
 }
 
 body {
-	background-image: url('lrbg.png');
+	background-image: url('lpbg2.jpg');
 	
 	/* background: rgb(104,102,106);
 background: radial-gradient(circle, rgba(119,151,255,1) 0%, rgba(0,0,0,1) 100%);
@@ -50,8 +50,8 @@ a {
 
 button {
 	border-radius: 20px;
-	border: 1px solid rgba(119,151,255,1);
-	background-color: rgba(119,151,255,1);
+	border: 1px solid rgb(44, 78, 47);
+	background-color: rgb(44, 78, 47);
 	color: #eeebeb;
 	font-size: 10px;
 	font-weight: bold;
@@ -130,7 +130,7 @@ input {
 
 
 .overlay {
-	background:rgba(119,151,255,1);
+	background:rgb(44, 78, 47);
 	/* background-color:rgb(75, 52, 98); */
 	border-radius: 30px;
 	/* background: -webkit-linear-gradient(to right, rgba(125,35,218,1), rgba(125,35,218,1));
