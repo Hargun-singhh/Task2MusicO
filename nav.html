@@ -446,4 +446,250 @@
 
 </div>
 </div>
+<script src="https://kit.fontawesome.com/67ae9b72c4.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
+<script>
+function openNav() {
+document.getElementById("mySidenav").style.width = "250px";
+document.getElementById("mySidenav").style.width = "250px";
+document.getElementById("languageButton").style.marginLeft = "1000px";
+
+}
+function closeNav() {
+document.getElementById("mySidenav").style.width = "0";
+document.getElementById("main").style.marginLeft = "0";
+document.getElementById("languageButton").style.marginLeft = "1000px";
+
+
+}
+
+document.getElementById('searchInput').addEventListener('input', function() {
+      var searchInput = this.value.toLowerCase();
+      var items = document.querySelectorAll('#featured-playlists div');
+  
+      items.forEach(function(item) {
+          var itemName = item.textContent.toLowerCase();
+  
+          if (itemName.includes(searchInput)) {
+              item.style.display = 'block';
+          } else {
+              item.style.display = 'none';
+          }
+      });
+  });
+
+
+  const languages = {
+    en: {
+      punjabititle: "TOP 10 Punjabi Songs",
+      p: "Top 10 Punjabi Songs",
+      punjabides: "Trending punjabi songs",
+
+      bolltitle: "Bollywood Hits-10",
+      b: "Bollywood Hits-10",
+      bolldes: "Bollywood Best",
+
+      gymt: "Gym Playlist 2.O",
+      t: "Gym Playlist 2.O",
+      gymdes: "Workout & Burn Calories.    Enjoy Workout🔥",
+
+      ajt: "Anuv Jain Mix",
+      a: "Anuv Jain Mix",
+      ajdes: "Best of Anuv Jain",
+
+      tst: "Taylor Swift",
+      ts: "Taylor Swift",
+      tsdes: "1988-Taylor Swift",
+
+      cart: "Car Playlist",
+      c: "Car Playlist",
+      cardes: "Vibe In Car Songs",
+
+      toptt:"Featured Playlists",
+      yp:"Recently Played",
+
+
+
+      ac:"Car Playlists",
+      bb:"Anuv Jain",
+      cc:"Taylor Swift",
+      d:"Gym Playlist",
+      e:"Bollywood Hits-10",
+      f:"Top 10 Punjabi Songs",
+
+
+
+    
+
+    },
+    hi: {
+      punjabititle: "टॉप 10 पंजाबी गाने",
+      p: "टॉप 10 पंजाबी गाने",
+      f: "टॉप 10 पंजाबी गाने",
+      punjabides: "ट्रेंडिंग पंजाबी गाने",
+
+      bolltitle: "बॉलीवुड हिट्स-10",
+      b: "बॉलीवुड हिट्स-10",
+      e: "बॉलीवुड हिट्स-10",
+      bolldes: "बॉलीवुड बेस्ट",
+
+      gymt: "जिम प्लेलिस्ट",
+      t: "जिम प्लेलिस्ट",
+      d: "जिम प्लेलिस्ट",
+      gymdes: "कसरत करें और वजन कम करें",
+
+      ajt: "अनुव जैन",
+      a: "अनुव जैन",
+      bb: "अनुव जैन",
+      ajdes: "अनुव जैन का सर्वश्रेष्ठ संगीत",
+
+      tst: "टेलर स्विफ्ट",
+      ts: "टेलर स्विफ्ट",
+      cc: "टेलर स्विफ्ट",
+      tsdes: "1988-टेलर स्विफ्ट",
+
+      cart: "कार प्लेलिस्ट",
+      c: "कार प्लेलिस्ट",
+      ac: "कार प्लेलिस्ट",
+      cardes: "वाइब इन कार गाने",
+
+      toptt:"प्रदर्शित प्लेलिस्ट",
+      yp:"हाल ही में बजाया",
+
+
+
+      
+
+      
+
+      
+
+      
+    }
+  };
+  
+  
+  let currentLanguage = "en";
+  
+ 
+  function updateContent() {
+    document.getElementById("punjabititle").textContent = languages[currentLanguage].punjabititle;
+    document.getElementById("p").textContent = languages[currentLanguage].p;
+    document.getElementById("punjabides").textContent = languages[currentLanguage].punjabides;
+
+    document.getElementById("bolltitle").textContent = languages[currentLanguage].bolltitle;
+    document.getElementById("b").textContent = languages[currentLanguage].b;
+    document.getElementById("bolldes").textContent = languages[currentLanguage].bolldes;
+
+    document.getElementById("gymt").textContent = languages[currentLanguage].gymt;
+    document.getElementById("t").textContent = languages[currentLanguage].t;
+    document.getElementById("gymdes").textContent = languages[currentLanguage].gymdes;
+
+    document.getElementById("ajt").textContent = languages[currentLanguage].ajt;
+    document.getElementById("a").textContent = languages[currentLanguage].a;
+    document.getElementById("ajdes").textContent = languages[currentLanguage].ajdes;
+
+    document.getElementById("tst").textContent = languages[currentLanguage].tst;
+    document.getElementById("ts").textContent = languages[currentLanguage].ts;
+    document.getElementById("tsdes").textContent = languages[currentLanguage].tsdes;
+
+    document.getElementById("cart").textContent = languages[currentLanguage].cart;
+    document.getElementById("c").textContent = languages[currentLanguage].c;
+    document.getElementById("cardes").textContent = languages[currentLanguage].cardes;
+
+    document.getElementById("yp").textContent = languages[currentLanguage].yp;
+    document.getElementById("toptt").textContent = languages[currentLanguage].toptt;
+
+    document.getElementById("ac").textContent = languages[currentLanguage].ac;
+    document.getElementById("bb").textContent = languages[currentLanguage].bb;
+    document.getElementById("cc").textContent = languages[currentLanguage].cc;
+    document.getElementById("d").textContent = languages[currentLanguage].d;
+    document.getElementById("e").textContent = languages[currentLanguage].e;
+    document.getElementById("f").textContent = languages[currentLanguage].f;
+   
+    
+  }
+  
+
+  function toggleLanguage() {
+    currentLanguage = (currentLanguage === "en") ? "hi" : "en";
+    updateContent();
+  }
+  
+ 
+  updateContent();
+  
+ 
+  document.getElementById("languageButton").addEventListener("click", toggleLanguage);
+
+var isFirstGradient = true;
+
+function toggleGradient() {
+if (isFirstGradient) {
+  // Change body background color to the second gradient
+  document.body.style.backgroundImage = "radial-gradient(circle, rgba(0,0,0,1) 37%, rgba(57,56,57,1) 70%);"; // Example gradient from blue to cyan
+} else {
+  // Change body background color to the first gradient
+  document.body.style.backgroundImage = "radial-gradient(circle, #FFFFFF, #393839)"; // Initial gradient
+  document.getElementById("yp").style.color="black";
+  document.getElementById("toptt").style.color="black";
+}
+// Toggle the flag
+isFirstGradient = !isFirstGradient;
+}
+  </script>
+</body>
+<script type="module">
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+apiKey: "AIzaSyBDs2cBIcv8dwIpGd23-GkqSbfghcSDTWE",
+authDomain: "musico-auth.firebaseapp.com",
+databaseURL: "https://musico-auth-default-rtdb.firebaseio.com",
+projectId: "musico-auth",
+storageBucket: "musico-auth.appspot.com",
+messagingSenderId: "881812235522",
+appId: "1:881812235522:web:0489aa0507fbd6d595ce1b"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth = getAuth();
+console.log(app);
+
+
+
+//----- New Registration code start	  
+
+
+//----- Logout code start	  
+document.getElementById("logout").addEventListener("click", function() {
+    signOut(auth).then(() => {
+        // Sign-out successful.
+        console.log('Sign-out successful.');
+        window.location = 'index.html';
+      }).catch((error) => { 
+        // An error happened.
+        console.log('An error happened.');
+      });		  		  
+});
+//----- End
+
+
+
+
+</script>
 </html>
