@@ -6,11 +6,12 @@
 }
 
 body {
+	background-image: url('lrbg.png');
 	
-	background: rgb(104,102,106);
+	/* background: rgb(104,102,106);
 background: radial-gradient(circle, rgba(119,151,255,1) 0%, rgba(0,0,0,1) 100%);
 	background-repeat: no-repeat;
-	
+	 */
 	display: flex;
 	justify-content: center;
 	align-items: center;
