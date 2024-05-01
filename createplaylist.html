@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bulit Your Own Playlist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .full-image-container {
+  /* background: rgb(17, 17, 17); */
+  position: fixed;
+  top: 7%; /* Adjust this value according to your layout */
+  right: 0.5%; /* Adjust this value according to your layout */
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  border: 1px solid rgba(127, 35, 218, 0.376);
+  display: none; /* Initially hidden */
+  border-radius: 20px;
+  padding: 10px;
+  /* z-index: 999; Ensure it's above other elements */
+}
+
+.full-image-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: rgb(77,77,77);
+background: linear-gradient(180deg, rgba(77,77,77,1) 0%, rgba(57,56,57,1) 0%, rgba(0,8,10,1) 55%, rgba(0,10,11,1) 100%);
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #fdfafa;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #4e4c4c;
+}
+        .search-container{
+  border-radius: 100px;
+  position: absolute;
+  right: 1%;
+  margin-top: 1px;
+  color: white;
+
+
+}
+
+input[type=text] {
+  padding: 6px;
+  margin-top: 1px; 
+  width: 300px; 
+  font-size: 17px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-color: rgba(127, 35, 218, 0.376);
+  border-radius: 50px;
+  border-style: solid;
+  background: rgb(77,77,77);
+  /* background: linear-gradient(180deg, rgba(77,77,77,1) 0%, rgba(127, 35, 218, 0.796) 0%, rgba(0,8,10,1) 55%, rgba(0,10,11,1) 100%); */
+  color: white;
+}
+        nav{
+    overflow: hidden;
+}
+  nav ul{
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    height: 50px;
+    background: black;
+    color: white;
+}
+
+nav ul li{
+    padding: 0 15;
+    padding-right: 10px;
+    color: white;
+}
+.file-input-label{
+    color: rgb(125, 40, 216);
+}
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    width: 100%;
+    background: rgb(125,35,218);
+background: linear-gradient(320deg, rgba(57,56,57,1) 20%, rgba(5,2,2,1) 50%);
+}
+
+.container {
+    width: 50%;
+    color: white;
+    margin: 0 auto;
+    background: rgb(125,35,218);
+background: linear-gradient(320deg, rgba(57,56,57,1) 20%, rgba(5,2,2,1) 50%);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    align-self: center;
+    margin-left: 400px;
+}
+
+/* ... (rest of the CSS styles) */
+
+.custom-audio-player {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #030303;
+    border-radius: 20px;
+    border-color: rgba(127, 35, 218, 0.376);
+    border-style: solid;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.play-pause-btn {
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.custom-audio-player progress {
+    flex-grow: 1;
+    width: 50%;
+    height: 5px;
+    border-radius: 20px;
+    margin: 0 10px;
+    accent-color: white;
+}
+
+.song-info {
+    flex-grow: 1;
+    text-align: center;
+    color: white;
+}
+    </style>
+</head>
+<body>
+    <div class="sidenav">
+        <a href="#about">Home</a>
+        <a href="#services">Top Punjabi Songs</a>
+        <a href="#clients">Bollywood Hits</a>
+        <a href="#contact">Bollywood Hits</a>
+        <a href="">Taylor Swift</a>
+    </div>
+    <div class="container">
+        <h1>Built Your Playlist</h1>
+        <div class="add-song">
+            <label for="fileInput" class="file-input-label">
+                <i class="fas fa-plus"></i> Add Songs
+            </label>
+            <input type="file" id="fileInput" accept="audio/*" multiple hidden>
+        </div>
+        <div class="song-list">
+            <h2>Song List</h2>
+            <ul id="songList"></ul>
+        </div>
+        <button id="createPlaylistBtn" class="create-playlist-btn">Create Playlist</button>
+        <div id="playlistContainer"></div>
+    </div>
+    <script>
+const fileInput = document.getElementById('fileInput');
+const songList = document.getElementById('songList');
+const createPlaylistBtn = document.getElementById('createPlaylistBtn');
+const playlistContainer = document.getElementById('playlistContainer');
+
+let songs = [];
+let audioElements = [];
+
+fileInput.addEventListener('change', function() {
+    const files = fileInput.files;
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        if (file.type.startsWith('audio/')) {
+            songs.push(file);
+            const listItem = document.createElement('li');
+            listItem.textContent = file.name;
+            songList.appendChild(listItem);
+        }
+    }
+    fileInput.value = '';
+});
+
+createPlaylistBtn.addEventListener('click', function() {
+    if (songs.length > 0) {
+        const playlistDiv = document.createElement('div');
+        const playlistTitle = document.createElement('h2');
+        playlistTitle.textContent = 'My Playlist';
+        playlistDiv.appendChild(playlistTitle);
+
+        const playlistSongs = document.createElement('div');
+        songs.forEach(function(song, index) {
+            const audioElement = createCustomAudioPlayer(song, index);
+            playlistSongs.appendChild(audioElement);
+            audioElements.push(audioElement);
+        });
+        playlistDiv.appendChild(playlistSongs);
+
+        playlistContainer.innerHTML = '';
+        playlistContainer.appendChild(playlistDiv);
+    }
+});
+
+function createCustomAudioPlayer(song, index) {
+    const audioUrl = URL.createObjectURL(song);
+    const audioElement = new Audio(audioUrl);
+
+    const playerDiv = document.createElement('div');
+    playerDiv.classList.add('custom-audio-player');
+
+    const playPauseBtn = document.createElement('button');
+    playPauseBtn.classList.add('play-pause-btn');
+    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+    playPauseBtn.addEventListener('click', function() {
+        if (audioElement.paused) {
+            audioElement.play();
+            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        } else {
+            audioElement.pause();
+            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+        }
+    });
+
+    const progressBar = document.createElement('progress');
+    progressBar.value = 0;
+    progressBar.max = 100;
+
+    const songInfo = document.createElement('div');
+    songInfo.classList.add('song-info');
+    songInfo.textContent = song.name;
+
+    audioElement.addEventListener('timeupdate', function() {
+        const duration = audioElement.duration;
+        const currentTime = audioElement.currentTime;
+        const progress = (currentTime / duration) * 100;
+        progressBar.value = progress;
+    });
+
+    audioElement.addEventListener('ended', function() {
+        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+    });
+
+    playerDiv.appendChild(playPauseBtn);
+    playerDiv.appendChild(progressBar);
+    playerDiv.appendChild(songInfo);
+
+    return playerDiv;
+}
+
+    </script>
+</body>
+</html>
