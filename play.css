@@ -27,7 +27,7 @@
 }
 .sidenav {
   height: 100%;
-  width: 250px;
+  width: 230px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -142,7 +142,7 @@ background: linear-gradient(320deg,  rgb(119, 151, 255) 20%, rgba(5,2,2,1) 50%);
   
   .container {
     position: relative;
-    right: 20%;
+    right: 10%;
     max-width: 400px;
     margin: 20px auto;
     padding: 20px;
