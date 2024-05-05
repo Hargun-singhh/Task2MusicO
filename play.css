@@ -65,14 +65,15 @@ background-image: url('lpbg2.jpg');
     margin-top: 10px;
     display: flex;
     width: 200px;
-    /* margin-left: 1390px;
-    position: absolute; */
+    justify-content: center; /* Center the slider horizontally */
+    /* position: absolute;  */
     flex-direction: row;
     align-items: center;
   }
   .bottom .volume-slider {
     margin-top: 0px; 
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
+     
   }
 
   .bottom .volume-slider input[type="range"] {
@@ -84,6 +85,7 @@ background-image: url('lpbg2.jpg');
     border-radius: 5px;
     margin-top: 5px;
     /* margin-left: 4px; */
+    margin-right: 0px;
     accent-color: rgb(232, 226, 239);
   }
 
