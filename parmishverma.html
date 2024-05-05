@@ -148,3 +148,126 @@
  
   
 </div>
+<div class="full-image-container" id="fullImageContainer">
+ 
+  <img id="fullImage" src="" alt="Full Size Image">
+  <div id="Song-name"></div>
+</div>
+
+<footer class="bottom">
+  <div class="vp">
+      <input type="range" name="range" id="MyPB" min="0"  value="0" max="100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="volume-slider">
+      <p><i class="fa-solid fa-volume-high fa-l"></p></i>
+      <input type="range" min="0" max="100" value="100" id="volumeRange"><span id="volumeValue" style="font-size: 12px; padding-top:3px; padding-left: 5px;"> </span>
+      </div>
+      
+  </div>
+  <div class="icons">
+      <i id="shuffleButton" class="fa-solid fa fa-shuffle"></i>
+      <i class="fa-solid fa-2x fa-backward-fast" id="previous"></i>
+      <i class="fa-regular masterplay fa-2x fa-circle-play" id="masterPlay"></i>
+      <i class="fa-solid fa-2x fa-forward-fast" id="next"></i>
+      <i id="repeat" class="fa-solid fa fa-repeat"></i>
+      
+</div>
+
+</footer>
+<script>
+  let isRepeat = false;
+const repeatButton = document.getElementById('repeat');
+const shuffleButton = document.getElementById('shuffleButton');
+let songIndex=0;
+let masterPlay =document.getElementById('masterPlay');
+let MyPB =document.getElementById('MyPB');
+let songItems = Array.from(document.getElementsByClassName('songItem'));
+let audioElement =new Audio('songs4/1.mp3');
+
+let songs =[
+    {songName: "Bai Bai",filePath: "songs4/2.mp3", coverPath: ""},
+    {songName: "",filePath: "songs4/1.mp3", coverPath: ""},
+    {songName: "",filePath: "songs4/3.mp3", coverPath: ""},
+    {songName: "",filePath: "songs4/4.mp3", coverPath: ""},
+    {songName: "",filePath: "songs4/5.mp3", coverPath: ""},
+    {songName: "",filePath: "songs4/6.mp3", coverPath: ""},
+    {songName: "",filePath: "songs4/7.mp3", coverPath: ""},
+    {songName: "",filePath: "songs4/8.mp3", coverPath: ""},
+    {songName: "",filePath: "songs4/9.mp3", coverPath: ""},
+    {songName: "",filePath: "songs4/10.mp3", coverPath:""},
+    {songName: "",filePath: "songs4/11.mp3", coverPath: ""},
+    {songName: "",filePath: "songs4/12.mp3", coverPath:""},
+    {songName: "",filePath: "songs4/13.mp3", coverPath:""},
+    {songName: "",filePath: "songs4/14.mp3", coverPath:""},
+    
+]
+
+
+document.getElementById('next').addEventListener('click', ()=>{
+    if(songIndex>=14){
+        songIndex = 0
+    }
+    else{
+        songIndex += 1;
+        MyPB.value =0
+
+    }
+    audioElement.src = `songs4/${songIndex+1}.mp3`;
+    audioElement.currentTime = 0;
+    audioElement.play();
+    masterPlay.classList.remove('fa-play-circle');
+    masterPlay.classList.add('fa-pause-circle');
+
+})
+
+document.getElementById('previous').addEventListener('click', ()=>{
+    if(songIndex<=0){
+        songIndex = 0
+    }
+    else{
+        songIndex -= 1;
+        MyPB.value =0
+    }
+
+    audioElement.src = `songs4/${songIndex+1}.mp3`;
+    audioElement.currentTime = 0;
+    audioElement.play();
+    masterPlay.classList.remove('fa-play-circle');
+    masterPlay.classList.add('fa-pause-circle');
+})
+
+
+
+
+const makeAllPlays = ()=>{
+Array.from(document.getElementsByClassName('songItemmPlay')).forEach((element)=>{
+    element.classList.remove('fa-pause-circle');
+    element.classList.add('fa-play-circle');
+})
+}
+
+Array.from(document.getElementsByClassName('songItemmPlay')).forEach((element)=>{
+  element.addEventListener('click', (e)=>{
+      makeAllPlays();
+      songIndex = parseInt(e.target.id);
+      e.target.classList.remove('fa-play-circle');
+      e.target.classList.add('fa-pause-circle');
+      audioElement.src = `songs4/${songIndex+1}.mp3`;
+      audioElement.currentTime = 0;
+      audioElement.play();
+  })
+})
+
+Array.from(document.getElementsByClassName('songItemmPlay','masterplay')).forEach((element) => {
+          element.addEventListener('click', (e) => {
+              let songIndex = parseInt(e.target.id);
+              let songImagePath = `pics4/${songIndex+1}.png`; // Path to the full-size image
+              document.getElementById('fullImage').src = songImagePath;
+              document.getElementById('fullImageContainer').style.display = 'block';
+          });
+      });
+
+
+</script>
+<script src="play.js"></script>
+</body>
+</html>
