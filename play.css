@@ -118,7 +118,7 @@ background-image: url('lpbg2.jpg');
     right: 0;
     z-index: 5;
     height: 100px;
-    background-color: black;
+    background-image: url('lpbg2.jpg');
     color: white;
     display: flex;
     justify-content: space-around;
