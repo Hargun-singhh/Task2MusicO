@@ -159,7 +159,7 @@ background-image: url('lpbg2.jpg');
     margin: 20px auto;
     /* padding: 20px; */
     /* background: rgb(125,35,218); */
-    background: rgb(16, 57, 43);
+    background: rgb(52, 122, 98);
     height: 100%;
     border-radius: 20px;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
@@ -172,8 +172,8 @@ background-image: url('lpbg2.jpg');
     display: flex;
     align-items: center;
     padding: 10px;
-    background: rgb(16, 57, 43);
-    border: 1px solid rgb(11, 12, 11);
+    background: rgb(54, 114, 94);
+    border: 1px solid rgb(221, 234, 221);
     border-radius: 30px;
     margin-bottom: 10px;
     transition: transform 0.2s;
@@ -193,13 +193,13 @@ background-image: url('lpbg2.jpg');
 
   .song-details {
     flex-grow: 1;
-    color: rgb(10, 10, 10);
+    color: rgb(238, 224, 224);
   }
 
   .artist-name {
     overflow: auto;
     white-space: nowrap;
-    color:rgb(9, 9, 9);
+    color:rgb(243, 222, 222);
   }
 
   .play-icon {
